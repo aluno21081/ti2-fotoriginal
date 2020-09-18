@@ -1,17 +1,14 @@
-# Pixabay Image Gallery - React & Tailwind CSS 
+# FotOriginal 
 
-Simple gallery with images from the pixabay API. Tailwind css is built into workflow with postcss and autoprefixer.
+O projeto consiste em apresentar um site em REACT que permita aos utilizadores fazer login e dar upload das suas fotografias.
 
-## Usage
-Add your Pixabay API key to .env - https://pixabay.com/api/docs/
+## Backend 
 
-```
-# Install dependencies
-npm install
+Usámos o Strapi!
 
-# Watch CSS & run server on :3000
-npm start
+## Frontend
 
-# Build CSS and assets
-npm run build
-```
+Começamos por ir buscar um template em react que fosse do nosso agrado
+
+Créditos:
+https://github.com/bradtraversy/react-tailwind-pixabay-gallery

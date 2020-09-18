@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/fotografias",
+      "handler": "fotografias.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/fotografias/count",
+      "handler": "fotografias.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/fotografias/:id",
+      "handler": "fotografias.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/fotografias",
+      "handler": "fotografias.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/fotografias/:id",
+      "handler": "fotografias.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/fotografias/:id",
+      "handler": "fotografias.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

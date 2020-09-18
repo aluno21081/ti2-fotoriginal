@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brunos",
+  "info": {
+    "name": "bruno"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "descricao": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "Animais",
+        "Arquitetura",
+        "Desporto",
+        "Natureza"
+      ]
+    },
+    "nome": {
+      "type": "string"
+    }
+  }
+}

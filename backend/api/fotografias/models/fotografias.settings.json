@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fotografias",
+  "info": {
+    "name": "Fotografias"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "Animais",
+        "Arquitetura",
+        "Desporto",
+        "Natureza",
+        "Noite",
+        "Retrato",
+        "Outra"
+      ]
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "nome": {
+      "type": "string"
+    }
+  }
+}

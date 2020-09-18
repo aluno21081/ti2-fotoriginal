@@ -2,23 +2,16 @@ import React from 'react';
 import axios from 'axios';
 
 export default class Register extends React.Component {
-   
+
     constructor(props) {
         super(props);
-    
+
         this.state = {
             username: "",
             email: "",
             password: "",
         };
-      }
-   
-   
-   /*  state = {
-        username: "",
-        email: "",
-        password: "",
-    } */
+    }
 
     actUsername = (event) => {
         event.preventDefault();
@@ -53,9 +46,6 @@ export default class Register extends React.Component {
         axios.post(`http://localhost:1337/auth/local/register`, dados)
             .then(response => {
                 // Handle success.
-                console.log('Well done!');
-                console.log('User profile', response.data.user);
-                console.log('User token', response.data.jwt);
                 localStorage.setItem('user', JSON.stringify(response.data));
                 document.getElementById("formRegisto").reset();
             })
@@ -75,20 +65,20 @@ export default class Register extends React.Component {
 
                     <div className="form-group mt-4">
                         <label>Username</label>
-                        <input type="text" className="form-control" onChange={this.actUsername} placeholder="Enter username" />
+                        <input type="text" className="form-control" onChange={this.actUsername} placeholder="Escolhe o teu username" />
                     </div>
 
                     <div className="form-group mt-4">
-                        <label>Email address</label>
-                        <input type="email" className="form-control" onChange={this.actEmail} placeholder="Enter email" />
+                        <label>Email</label>
+                        <input type="email" className="form-control" onChange={this.actEmail} placeholder="Introduz o teu email" />
                     </div>
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" onChange={this.actPassword} placeholder="Enter password" />
+                        <input type="password" className="form-control" onChange={this.actPassword} placeholder="Escolhe a tua password" />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" className="btn btn-primary btn-block">Registar</button>
                 </form>
             </div>
         );

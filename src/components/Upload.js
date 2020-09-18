@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { browserHistory } from "react-router";
 import axios from 'axios';
 import './App.css';
 
@@ -37,19 +36,14 @@ class Upload extends Component {
   }
 
   onImageChange = event => {
-    console.log(event.target.files[0]);
     this.setState({ image: event.target.files[0] });
   };
 
   onSubmit = e => {
     e.preventDefault();
 
-
     let token = null;
-
     let userId = null;
-
-    console.log(localStorage.getItem('user'));
 
     if (localStorage.getItem('user')) {
       const user = JSON.parse(localStorage.getItem('user'));
@@ -71,9 +65,7 @@ class Upload extends Component {
     }
 
     const formData = new FormData();
-    console.log(dados);
     formData.append('files', this.state.image);
-    console.log(formData);
     axios.post(`http://localhost:1337/upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -81,13 +73,10 @@ class Upload extends Component {
       }
     })
       .then(res => {
-        console.log(res);
         dados.image = res.data[0].id;
-        console.log(formData);
         axios.post(`http://localhost:1337/Fotografias`, dados, config)
           .catch(err => { alert(err.message); })
           .then(res => {
-            console.log(res);
             document.getElementById("formUpload").reset();
           })
       });
@@ -101,7 +90,7 @@ class Upload extends Component {
         <h3>Upload</h3>
         <form id="formUpload" onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Name:</label>
+            <label>Nome:</label>
             <input className="form-control" type="text" onChange={this.actNome} />
           </div>
           <div className="form-group">
@@ -129,7 +118,7 @@ class Upload extends Component {
               alt="image"
             />
           </div>
-          <button type="submit" className="btn btn-primary">Add</button>
+          <button type="submit" className="btn btn-primary">Adicionar</button>
         </form>
       </div>
     );
